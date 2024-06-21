@@ -186,89 +186,19 @@
 
 #-----Session 6-----
 #problem 1
-#Problem 1 
-def is_long_pressed(name, typed):
-  var1 = 0  #name
-  var2 = 0  #typed
-
-  # nothing typed then return 
-  if len(typed) == 0:
-    return False
-
-  #loop through both and if letters are the same then
-  # increment both 
-  while var2 < len(typed) and var1 < len(name):
-    if name[var1] == typed[var2]:
-      var1 += 1
-      var2 += 1
-    elif var2 > 0 and typed[var2] == typed[var2 - 1]:
-      var2 += 1
-    else:
-      return False
-  return True
-
-name = "alex"
-typed = "aaleex"
-print(is_long_pressed(name, typed))
-
-name2 = "saeed"
-typed2 = "ssaaedd"
-print(is_long_pressed(name2, typed2))
-
-name3 = "courtney"
-typed3 = "courtney"
-print(is_long_pressed(name3, typed3))
-
-#problem 2
-def find_content_children(g,s):
-  s.sort()
-  g.sort()
-  child = 0
-  size = 0
-  count = 0
-  while size < len(s) and child < len(g):
-    if(g[child]<=s[size]):
-      child+=1
-      size+=1
-      count+=1
-    else:
-      size+=1
-  return count
-
-g = [1,2,3]
-s = [1,1,3]
-print(find_content_children(g,s))
-g = [1,1]
-s = [2,2,2]
-print(find_content_children(g,s))
-#should return 3
-
-#Problem 3 
-def valid_palindrome(s):
+def is_palindrome(s):
   left = 0
   right = len(s)-1
-  count = 0
-  flag = 0
-  lis = list(s)
   while left < right:
-    if lis[left] == lis[right]:
+    if s[left] == s[right]:
       left += 1
       right -= 1
-      flag += 1
-    elif lis[left] != lis[right] and count < 1:
-      count += 1
-      lis.pop(flag)
-      left += 1
-      right -= 1
-      flag += 1
     else:
       return False
   return True
 
-s = "aba"
-s2 = "abca"
-s3 = "abc"
+s = "amanaplanacanalpanama"
+s2 = "hello world"
 
-print(valid_palindrome(s))
-print(valid_palindrome(s2))
-print(valid_palindrome(s3))
+print(is_palindrome(s))
+print(is_palindrome(s2))
