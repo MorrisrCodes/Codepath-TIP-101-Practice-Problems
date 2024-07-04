@@ -66,3 +66,33 @@ player1_hand.add_card(card_two)
 
 player1_hand.remove_card(card_one)
 # cards = [card_two]
+
+#day2practice
+#Problem 1
+def sum13(nums):
+  pointer1 = 0
+  count = 0
+  while pointer1 < len(nums):
+    if nums[pointer1] == 13:
+      pointer1 += 2
+    else:
+      count += nums[pointer1]
+      pointer1 += 1
+  return count
+
+#Problem 2
+def sum67(nums):
+  pointer = 0
+  truth = False
+  count = 0
+  while pointer < len(nums):
+    if nums[pointer] == 6:
+      truth = True
+    if truth == True:
+      if nums[pointer] == 7:
+        truth = False
+      pointer += 1
+    else:
+      count += nums[pointer]
+      pointer += 1
+  return count
