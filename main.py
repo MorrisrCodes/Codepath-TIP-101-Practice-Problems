@@ -335,10 +335,10 @@ node_4=Node("Toad")
 node_1.next=node_2
 node_2.next=node_3
 node_3.next=node_4
-print(node_1.value, "->", node_1.next.value)
-print(node_2.value, "->", node_2.next.value)
-print(node_3.value, "->", node_3.next.value)
-print(node_4.value, "->", node_4.next)
+# print(node_1.value, "->", node_1.next.value)
+# print(node_2.value, "->", node_2.next.value)
+# print(node_3.value, "->", node_3.next.value)
+# print(node_4.value, "->", node_4.next)
 #aproova I was thinking the same approach initially - Ryan
 #:)
 #I just saw the def above so the approch makes more sense to me now
@@ -403,20 +403,20 @@ node_1 = add_first(node_1, new_node)
 # print(node_1.value, "->", node_1.next.value)
 
 #Problem 4
-node_3 = Node(lst[2])
-node_2 = Node(lst[1], node_3)
-node_1 = Node(lst[0], node_2)
+# node_3 = Node(lst[2])
+# node_2 = Node(lst[1], node_3)
+# node_1 = Node(lst[0], node_2)
 
-def get_tail(head):
-  curr = head
-  if head == None:
-    return None
-  while curr.next != None:
-    curr = curr.next
-  return curr.value
+# def get_tail(head):
+#   curr = head
+#   if head == None:
+#     return None
+#   while curr.next != None:
+#     curr = curr.next
+#   return curr.value
 
-head = node_1
-tail = get_tail(node_1)
+# head = node_1
+#tail = get_tail(node_1)
 #print(tail)
 
 #Problem 5
@@ -442,25 +442,96 @@ ll_replace(head, 5, "banana")
 # print(head.value)
 
 #Problem 6
-def listify_first_n(head, n):
-  result = []
-  curr = head
-  count = 0
+# def listify_first_n(head, n):
+#   result = []
+#   curr = head
+#   count = 0
 
-  while curr != None and count < n:
-    result.append(curr.value)
-    curr = curr.next
-    count += 1
+#   while curr != None and count < n:
+#     result.append(curr.value)
+#     curr = curr.next
+#     count += 1
 
-  return result
+#   return result
 
 # linked list: a -> b -> c
-head = 'a'
-lst = listify_first_n(head,2)
+# head = 'a'
+# lst = listify_first_n(head,2)
 # print(lst)
 
 # linked list: j -> k -> l 
-head2 = 'j'
-lst2 = listify_first_n(head2,5)
-# print(lst2)
+# head2 = 'j'
+#lst2 = listify_first_n(head2,5)
+#print(lst2)
 #commit attempt
+#4th of july practice
+#Problem 1-5
+class Card():
+
+  def __init__(self, suit, rank):
+    self.suit = suit
+    self.rank = rank
+
+  def is_valid(self):
+    suits = ['Hearts','Spades','Clubs','Diamonds']
+    ranks = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace']
+    if self.suit in suits and self.rank in ranks:
+      return True
+    return False
+
+  def get_value(self):
+    ranks10 = ['2','3','4','5','6','7','8','9','10']
+    higher = {'Jack':11,'Queen':12,'King':13}
+    if self.rank in ranks10:
+      return self.rank
+    else:
+        return higher.get(self.rank)
+def print_card(self):
+  print(f"{self.rank} of {self.suit}")
+
+#card = Card('Clubs', 'Ace')
+#print_card(card)
+
+#card = Card('Hearts', 'Clubs')
+#print_card(card)
+
+#my_card = Card("Hearts", "7")
+#print(my_card.is_valid())
+
+#second_draw = Card("Spades", "Joker")
+#print(second_draw.is_valid())
+
+#card = Card("Hearts", "7")
+#print(card.get_value())
+
+#card_two = Card("Spades", "Jack")
+#print(card_two.get_value())
+
+#Problem 6
+class Hand:
+  def __init__(self):
+      self.cards = []
+
+  def add_card(self, card):
+    self.cards.append(card)
+
+  def remove_card(self, card):
+    self.cards.remove(card)
+
+card_one = Card("Hearts", "3")
+card_two = Card("Spades", "8")
+
+player1_hand = Hand()
+# cards = []
+
+player1_hand.add_card(card_one)
+# cards = [card_one]
+
+player1_hand.add_card(card_two)
+# cards = [card_one, card_two]
+
+player1_hand.remove_card(card_one)
+# cards = [card_two]
+
+#Problem 7
+def sum_hand
