@@ -1,5 +1,5 @@
 #4th of july practice
-#Problem 1-3
+#Problem 1-5
 class Card():
 
   def __init__(self, suit, rank):
@@ -13,19 +13,56 @@ class Card():
       return True
     return False
 
-
+  def get_value(self):
+    ranks10 = ['2','3','4','5','6','7','8','9','10']
+    higher = {'Jack':11,'Queen':12,'King':13}
+    if self.rank in ranks10:
+      return self.rank
+    else:
+        return higher.get(self.rank)
 def print_card(self):
   print(f"{self.rank} of {self.suit}")
 
+#card = Card('Clubs', 'Ace')
+#print_card(card)
 
-# card = Card('Clubs', 'Ace')
-# print_card(card)
+#card = Card('Hearts', 'Clubs')
+#print_card(card)
 
-# card = Card('Hearts', 'Clubs')
-# print_card(card)
+#my_card = Card("Hearts", "7")
+#print(my_card.is_valid())
 
-my_card = Card("Hearts", "7")
-print(my_card.is_valid())
+#second_draw = Card("Spades", "Joker")
+#print(second_draw.is_valid())
 
-second_draw = Card("Spades", "Joker")
-print(second_draw.is_valid())
+#card = Card("Hearts", "7")
+#print(card.get_value())
+
+#card_two = Card("Spades", "Jack")
+#print(card_two.get_value())
+
+#Problem 6
+class Hand:
+  def __init__(self):
+      self.cards = []
+
+  def add_card(self, card):
+    self.cards.append(card)
+
+  def remove_card(self, card):
+    self.cards.remove(card)
+
+card_one = Card("Hearts", "3")
+card_two = Card("Spades", "8")
+
+player1_hand = Hand()
+# cards = []
+
+player1_hand.add_card(card_one)
+# cards = [card_one]
+
+player1_hand.add_card(card_two)
+# cards = [card_one, card_two]
+
+player1_hand.remove_card(card_one)
+# cards = [card_two]
