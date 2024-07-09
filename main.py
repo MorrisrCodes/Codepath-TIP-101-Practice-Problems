@@ -465,3 +465,22 @@ ll_replace(head, 5, "banana")
 #print(lst2)
 #commit attempt
 
+class Node:
+  def __init__(self, value, next=None):
+    self.value = value
+    self.next = next
+
+def frequency_map(head):
+  curr = head
+  occ = {}
+  while curr:
+    if curr.value in occ:
+      occ[curr.value] += 1
+    else:
+      occ[curr.value] = 1
+    curr = curr.next
+  return occ
+
+head = Node(1, Node(2, Node(3, Node(4, Node(2, Node(3))))))
+result = frequency_map(head)
+print(result)
