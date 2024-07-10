@@ -97,7 +97,8 @@ def sum67(nums):
       pointer += 1
   return count
 
-#Problem 3
+#Day 3
+#Problem 1 & 2
 class Node:
   def __init__(self, value, next=None):
     self.value = value
@@ -109,7 +110,7 @@ misty = Node("Misty")
 brock = Node("Brock")
 head.next.next = Node()
 
-head =  Node('Ash',Node('Misty', 'Brock'))
+head =  Node('Ash',Node('Misty', Node('Brock')))
 
 class Node:
   def __init__(self, value, next=None):
