@@ -536,3 +536,76 @@ def has_cycle(head):
 # node4.next = node2
 # #print_list(head) #infinite with it being a cycle linked list
 # print(has_cycle(head))
+#time complexity is O(N) because there is 1 loop
+#space complexity is O(1) it's only the variables that have been defined
+
+#Problem 5
+class Node:
+   def __init__(self, value, next=None):
+       self.value = value
+       self.next = next
+
+def cycle_length(head):
+  if not head or not head.next:
+    return 0
+  slow = curr = head
+  len = 0
+  occ = {}
+  while curr.next:
+    occ[curr.value] = 1 + len
+    curr = curr.next.next
+    slow = slow.next
+    len += 1
+    if curr == slow:
+      break
+  return len - occ[curr.value]
+
+def cycle_length(head):
+  if not head or not head.next:
+      return 0
+
+  slow = curr = head
+  len = 0
+  occ = {}
+
+  while curr.next:
+      if curr.value in occ:
+          return len - occ[curr.value]
+
+      occ[curr.value] = len
+      curr = curr.next
+      len += 1
+  return 0
+
+node4 = Node(4)
+node3 = Node(3, node4)
+node2 = Node(2, node3)
+head = Node(1, node2)
+
+node4.next = node2
+
+# print(cycle_length(head))
+#time complexity is O(N) based on len of ll
+#space complexity is O(1) constant
+#wrong space is actually O(N) because saving to a dict which is dependent on the len ll
+
+#Problem 6
+class Node:
+   def __init__(self, value, next=None):
+       self.value = value
+       self.next = next
+
+def print_list(node):
+  current = node
+  while current:
+      print(current.value, end=" -> " if current.next else "")
+      current = current.next
+  print()
+
+def reverse_first_k(head, k):
+  curr = curr2 = head
+  
+
+head = Node(1, Node(2, Node(3, Node(4, Node(5)))))
+print_list(head)
+reverse_first_k(head)
