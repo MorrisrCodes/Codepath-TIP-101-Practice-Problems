@@ -609,3 +609,70 @@ def reverse_first_k(head, k):
 head = Node(1, Node(2, Node(3, Node(4, Node(5)))))
 print_list(head)
 reverse_first_k(head)
+
+
+#-----Session 10 ------
+#Problem 1
+class Node:
+  def __init__(self, value, next=None):
+      self.value = value
+      self.next = next
+
+def is_circular(head):
+  current = head
+
+  while current:
+    if current.next == head:
+      return True
+    current = current.next
+  return False
+
+node3 = Node(3)
+node2 = Node(2, node3)
+head2 = Node(1, node2)
+node3.next = head2
+#1 -> 2 -> 3 -> 1
+
+head1 = Node(1, Node(2, Node(3))) # 1 -> 2 -> 3
+
+print(is_circular(head1))
+print(is_circular(head2))
+
+#Problem 2
+class Node:
+  def __init__(self, value, next=None):
+      self.value = value
+      self.next = next
+
+def find_last_node_in_cycle(head):
+  cycle = False
+  slow = fast = head
+
+  while fast.next:
+    slow = slow.next
+    fast = fast.next.next
+    if fast == slow:
+      cycle = True
+      break
+
+  if not cycle:
+    return None
+
+  seen = {}
+  slow = head
+  while slow.next:
+    seen[slow] = seen.get(slow, 0) + 1
+    if seen[slow] > 1:
+      return prev.value
+    prev = slow
+    slow = slow.next
+  return None
+
+
+node3 = Node(3)
+node2 = Node(2, node3)
+head2 = Node(1, node2)
+node3.next = head2
+#1 -> 2 -> 3 -> 2
+
+print(find_last_node_in_cycle(head2))
