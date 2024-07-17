@@ -606,9 +606,9 @@ def reverse_first_k(head, k):
   curr = curr2 = head
   
 
-head = Node(1, Node(2, Node(3, Node(4, Node(5)))))
-print_list(head)
-reverse_first_k(head)
+# head = Node(1, Node(2, Node(3, Node(4, Node(5)))))
+# print_list(head)
+# reverse_first_k(head)
 
 
 #-----Session 10 ------
@@ -635,8 +635,8 @@ node3.next = head2
 
 head1 = Node(1, Node(2, Node(3))) # 1 -> 2 -> 3
 
-print(is_circular(head1))
-print(is_circular(head2))
+# print(is_circular(head1))
+# print(is_circular(head2))
 
 #Problem 2
 class Node:
@@ -675,4 +675,80 @@ head2 = Node(1, node2)
 node3.next = head2
 #1 -> 2 -> 3 -> 2
 
-print(find_last_node_in_cycle(head2))
+# print(find_last_node_in_cycle(head2))
+
+
+#-----Session 10 ------
+#Problem 1
+def repeat_hello(n):
+  if n > 0:
+    print("Hello")
+    repeat_hello(n - 1)
+
+# repeat_hello(5)
+
+def repeat_hello_iterative(n):
+  for i in range(n):
+    print('Hello')
+
+# repeat_hello_iterative(5)
+
+#Problem 2
+def factorial(n):
+  # base case
+  if n == 0:
+    return 1
+
+  return n * factorial(n - 1)
+
+# print(factorial(5))
+
+#Problem 3
+def sum_list(lst):
+  if not lst:
+    return 0
+  else:
+    return lst[0] + sum_list(lst[1:])
+
+# print(sum_list([1,2,3,4,5]))
+
+#Problem 4
+def is_power_of_two(n):
+  if n == 1:
+    return True
+  elif n == 0 or n % 2 != 0:
+    return False
+  else:
+    return is_power_of_two(n/2)
+
+# print(is_power_of_two(8))
+# print(is_power_of_two(13))
+
+#Problem 5
+def binary_search(lst, target):
+   # Initialize a left pointer to the 0th index in the list
+  left = 0
+   # Initialize a right pointer to the last index in the list
+  right = len(lst) - 1
+  # While left pointer is less than right pointer:
+  while left < right:
+    # Find the middle index of the array
+    mid = (left + right) // 2
+     # If the value at the middle index is the target value:
+    if target == lst[mid]:
+    # Return the middle index
+      return target
+    # Else if the value at the middle index is less than our target value:
+    elif (lst[mid] < target):
+    # Update pointer(s) to only search right half of the list in next loop iteration
+      left = mid + 1
+    # Else
+    else:
+      right = mid - 1 
+    # Update pointer(s) to only search left half of the list in next loop iteration
+
+    # If we search whole list and haven't found target value, return -1
+  return -1
+lst = [1,3,5,7,9,11,13,15]
+target = 11
+print(binary_search(lst, target))
