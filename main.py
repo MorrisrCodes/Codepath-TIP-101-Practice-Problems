@@ -678,7 +678,7 @@ node3.next = head2
 # print(find_last_node_in_cycle(head2))
 
 
-#-----Session 10 ------
+#-----Session 11 ------
 #Problem 1
 def repeat_hello(n):
   if n > 0:
@@ -697,7 +697,7 @@ def repeat_hello_iterative(n):
 def factorial(n):
   # base case
   if n == 0:
-    return 1
+    return 0
 
   return n * factorial(n - 1)
 
@@ -751,4 +751,39 @@ def binary_search(lst, target):
   return -1
 lst = [1,3,5,7,9,11,13,15]
 target = 11
-print(binary_search(lst, target))
+# print(binary_search(lst, target))
+
+#-----Session 11 ------
+#problem 1
+def count_ones(lst):
+  left = 0
+  right = len(lst) -1
+
+  while left <= right:
+    middle = (left + right) // 2
+    if lst[middle] == 0:
+      left = middle + 1
+    else:
+      right = middle - 1
+
+  return middle
+
+#Problem 2
+lst = [0, 0, 0, 0, 1, 1, 1]
+print(count_ones(lst))
+
+def count_ones(lst):
+  left = 0
+  right = len(lst) -1
+
+  while left <= right:
+    middle = (left + right) // 2
+    if lst[middle] == 0:
+      left = middle + 1
+    else:
+      right = middle - 1
+
+  return len(lst) - (middle)
+
+lst = [0, 0, 0, 0, 1, 1]
+print(count_ones(lst))
