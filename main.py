@@ -790,3 +790,71 @@ lst = [0, 0, 0, 0, 1, 1]
 
 
 #-----Session 12 ------
+#Problem 1
+def countdown(n):
+  if n > 0:
+    print(n)
+    countdown(n - 1)
+
+# countdown(5)
+
+def countdown_iterative(n):
+  m=n
+  for i in range(0,n):
+    print(m)
+    m=m-1
+
+# countdown_iterative(5)
+
+#Problem 2
+def fibonacci(n):
+  pass
+  if n == 1:
+    return 1
+  elif n == 0:
+    return 0
+  else:
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# print(fibonacci(3))
+
+#Problem 3
+def list_product(lst):
+  if not lst:
+    return 1
+  else:
+    return lst[0] * list_product(lst[1:])
+
+print(list_product([1,2,3,4,5]))
+print(list_product([3]))
+#time complexity = o(N)
+#space complexity = o(N)
+
+#Problem 4
+def is_power_of_four(n):
+  if n==1:
+    return True
+  elif n%4 != 0:
+    return False
+  else:
+    return is_power_of_four(n/4)
+
+# print(is_power_of_four(16))
+# print(is_power_of_four(12))
+#time complexity = o(logN)
+#space complexity = o(logN)
+
+#Problem 5
+def binary_search(lst, tar):
+  left = 0
+  right = len(lst) - 1
+  while right >= left:
+    mid = (right + left) // 2
+    if tar == lst[mid]:
+      return mid
+    elif tar > lst[mid]:
+      left = mid + 1
+    else:
+      right = mid - 1
+
+print(binary_search([1, 3, 5, 7, 9, 11, 13, 15], 5))
