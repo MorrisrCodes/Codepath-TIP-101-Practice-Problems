@@ -132,3 +132,33 @@ def frequency_map(head):
 # result = frequency_map(head)
 # print(result)
 \
+#Problem 1
+def insert_stars(s):
+    # If the string is empty or has only one character, return it as is
+    if len(s) <= 1:
+        return s
+    # Otherwise, insert '*' between the first character and the rest, then recurse
+    else:
+        return s[0] + '*' + insert_stars(s[1:])
+
+# print(insert_stars('abc'))
+
+def insert_starss(s):
+  temp = ''
+  for i in range(len(s)-1):
+    temp += s[i] + '*'
+  temp += s[-1]
+  return temp
+
+# print(insert_starss('abc'))
+
+#Problem 2
+def string_length(s):
+  if len(s) == 0:
+    return 0
+  else:
+    return 1 + string_length(s[1:])
+
+print(string_length('abc'))
+
+#Problem 3

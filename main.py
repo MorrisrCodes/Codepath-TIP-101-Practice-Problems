@@ -753,7 +753,7 @@ lst = [1,3,5,7,9,11,13,15]
 target = 11
 # print(binary_search(lst, target))
 
-#-----Session 11 ------
+#-----Session 12 ------
 #problem 1
 def count_ones(lst):
   left = 0
@@ -770,7 +770,7 @@ def count_ones(lst):
 
 #Problem 2
 lst = [0, 0, 0, 0, 1, 1, 1]
-print(count_ones(lst))
+# print(count_ones(lst))
 
 def count_ones(lst):
   left = 0
@@ -786,4 +786,7 @@ def count_ones(lst):
   return len(lst) - (middle)
 
 lst = [0, 0, 0, 0, 1, 1]
-print(count_ones(lst))
+# print(count_ones(lst))
+
+
+#-----Session 12 ------
