@@ -789,7 +789,7 @@ lst = [0, 0, 0, 0, 1, 1]
 # print(count_ones(lst))
 
 
-#-----Session 12 ------
+#-----Session 13 ------
 #Problem 1
 def countdown(n):
   if n > 0:
@@ -858,3 +858,36 @@ def binary_search(lst, tar):
       right = mid - 1
 
 print(binary_search([1, 3, 5, 7, 9, 11, 13, 15], 5))
+
+#-----Session 14------
+#Problem 1
+def count_substring(s, sub):
+  if len(s) < len(sub):
+    return 0
+  if s[:len(sub)] == sub:
+    return count_substring(s[len(sub):], sub) + 1
+  else:
+    return count_substring(s[1:], sub) + 0
+
+# print(count_substring("abcdeabcde", "abc"))
+# print(count_substring("abcdefg", "abc"))
+
+#Problem 2
+def count_zeroes(lst):
+  begin = 0
+  end = len(lst)-1
+  while begin < end:
+    mid = (end + begin) // 2
+    if lst[mid] == 0:
+      begin = mid+1
+      if lst[begin] == 1:
+        return begin
+    else:
+      end = mid-1
+      if lst[end] == 0:
+        return end+1
+  return 0
+
+# print(count_zeroes([0, 0, 0, 0, 1, 1, 1]))
+# print(count_zeroes([0, 0, 0, 1, 1, 1, 1]))
+# print(count_zeroes([0, 0, 1, 1, 1, 1, 1]))
