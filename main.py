@@ -825,8 +825,8 @@ def list_product(lst):
   else:
     return lst[0] * list_product(lst[1:])
 
-print(list_product([1,2,3,4,5]))
-print(list_product([3]))
+# print(list_product([1,2,3,4,5]))
+# print(list_product([3]))
 #time complexity = o(N)
 #space complexity = o(N)
 
@@ -857,7 +857,7 @@ def binary_search(lst, tar):
     else:
       right = mid - 1
 
-print(binary_search([1, 3, 5, 7, 9, 11, 13, 15], 5))
+# print(binary_search([1, 3, 5, 7, 9, 11, 13, 15], 5))
 
 #-----Session 14------
 #Problem 1
@@ -891,3 +891,125 @@ def count_zeroes(lst):
 # print(count_zeroes([0, 0, 0, 0, 1, 1, 1]))
 # print(count_zeroes([0, 0, 0, 1, 1, 1, 1]))
 # print(count_zeroes([0, 0, 1, 1, 1, 1, 1]))
+
+
+#-----Session 15------
+#Problem 1
+class TreeNode:
+  def __init__(self, val, left=None, right=None):
+    self.val=val
+    self.left=left
+    self.right=right
+
+  def check_tree(root):
+    if root.left.val + root.right.val == root.val:
+      return True
+    return False
+    
+# bt = TreeNode(8)
+# bt.left = TreeNode(3)
+# bt.right = TreeNode(13)
+# print(bt.check_tree())
+
+# pt = TreeNode(8)
+# pt.left = TreeNode(3)
+# pt.right = TreeNode(5)
+# print(pt.check_tree())
+
+
+# #Problem 2
+# class TreeNode:
+#   def __init__(self, val, left=None, right=None):
+#     self.val=val
+#     self.left=left
+#     self.right=right
+#   def check_tree(self,root):
+#     if root.left.val + root.right.val == root.val:
+#       return True
+#     return False
+
+# bt = TreeNode(8)
+# bt.left = TreeNode(3)
+# bt.right = TreeNode(5)
+
+# print(bt.check_tree(bt))
+
+# #Problem 3
+# class TreeNode:
+#   def __init__(self, val, left=None, right=None):
+#     self.val=val
+#     self.left=left
+#     self.right=right
+#   def check_tree(self, root):
+#     if root is None:
+#       return False
+#     if root.left is None and root.right is None:
+#       return False
+
+#     if root.left is not None and root.left.val== root.val and root.right is None:
+#       return False
+
+#     if root.right is not None and root.right.val== root.val and root.left is None:
+#         return True
+
+#     if root.left is not None and root.right is not None and root.left.val + root.right.val == root.val:
+#       return True
+#     return False
+#   def left_most(self, root):
+#     pass
+# bt = TreeNode(8)
+# bt.right = TreeNode(8)
+# print(bt.check_tree(bt))
+
+# #Problem 4
+# class TreeNode:
+#   def __init__(self, val, left=None, right=None):
+#     self.val=val
+#     self.left=left
+#     self.right=right
+
+# def left_most(root):
+#     if not root.left:
+#       return None
+#     curr = root
+#     while curr.left:
+#       curr = curr.left
+#     return curr.val
+
+# bt = TreeNode(8)
+# bt.right = TreeNode(8)
+# bt.left = TreeNode(6)
+# bt.left = TreeNode(3)
+# bt.left = TreeNode(2)
+# print(left_most(bt))
+
+# #Problem 5
+# class TreeNode:
+#   def __init__(self, val, left=None, right=None):
+#     self.val=val
+#     self.left=left
+#     self.right=right
+
+# def left_most(root):
+#     if not root.left:
+#       return None
+#     curr = root
+#     while curr.left:
+#       curr = curr.left
+#     return curr.val
+
+# def left_most_rec(root):
+#     if not root.left:
+#       return root.val
+#     return left_most_rec(root.left)
+
+
+# bt = TreeNode(8)
+# bt.right = TreeNode(8)
+# bt.left = TreeNode(6)
+# bt.left = TreeNode(3)
+# bt.left = TreeNode(2)
+# print(left_most_rec(bt))
+
+
+#-----Session 16------
