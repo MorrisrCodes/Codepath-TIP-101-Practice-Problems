@@ -1013,3 +1013,93 @@ class TreeNode:
 
 
 #-----Session 16------
+#Problem 1
+
+#-----Session 17------
+#Problem 1
+class TreeNode:
+  def __init__(self, value, left=None, right=None):
+      self.val = value
+      self.left = left
+      self.right = right
+
+root = TreeNode(5)
+root.left = TreeNode(10)
+root.right = TreeNode(20)
+
+root1 = TreeNode(5,TreeNode(10), TreeNode(20))
+
+#Problem 2
+class TreeNode:
+  def __init__(self, value, left=None, right=None):
+      self.val = value
+      self.left = left
+      self.right = right
+
+def check_tree(root):
+  if (root.left.val * root.right.val) == root.val:
+    return True
+  return False 
+
+root1 = TreeNode(10,TreeNode(2), TreeNode(5))
+root2 = TreeNode(10,TreeNode(5), TreeNode(5))
+
+# print(check_tree(root1))
+# print(check_tree(root2))
+
+#Problem 3
+class TreeNode:
+  def __init__(self, value, left=None, right=None):
+      self.val = value
+      self.left = left
+      self.right = right
+
+def check_tree1(root):
+  if not root or not root.left or not root.right:
+    return False
+  return (root.left.val * root.right.val) == root.val
+
+root1 = TreeNode(10,TreeNode(2), TreeNode(5))
+root2 = TreeNode(10,TreeNode(5), TreeNode(5))
+
+# print(check_tree1(root1))
+# print(check_tree1(root2))
+
+#Problem 4
+class TreeNode:
+  def __init__(self, value, left=None, right=None):
+      self.val = value
+      self.left = left
+      self.right = right
+
+def right_most(root):
+  if not root:
+    return None
+  if root.right is None:
+    return root.val
+  return right_most(root.right)
+
+root1 = TreeNode(10) #return 10
+root2 = TreeNode(10,TreeNode(5), TreeNode(20)) #return 20
+
+print(right_most(root1))
+print(right_most(root2))
+
+#Problem 5
+class TreeNode:
+  def __init__(self, value, left=None, right=None):
+      self.val = value
+      self.left = left
+      self.right = right
+
+def right_most1(root):
+  curr = root
+  while curr.right is not None:
+    curr = curr.right
+  return curr.val
+
+root1 = TreeNode(10) #return 10
+root2 = TreeNode(10,TreeNode(5), TreeNode(20)) #return 20
+
+# print(right_most1(root1))
+# print(right_most1(root2))
