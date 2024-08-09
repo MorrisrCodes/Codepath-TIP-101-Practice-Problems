@@ -131,7 +131,7 @@ def frequency_map(head):
 # head = Node(1, Node(2, Node(3, Node(4, Node(2, Node(3))))))
 # result = frequency_map(head)
 # print(result)
-\
+
 #Problem 1
 def insert_stars(s):
     # If the string is empty or has only one character, return it as is
@@ -161,4 +161,19 @@ def string_length(s):
 
 print(string_length('abc'))
 
-#Problem 3
+#-----Session 18------
+def is_pangram(my_str):
+  if len(my_str) < 26:
+    return False
+
+  my_str = my_str.lower()
+  li = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+  for i in li:
+    if i not in my_str:
+      return False
+  return True
+
+print(is_pangram('hello'))
+print(is_pangram('The quick brown fox jumps over the lazy dog'))
+print(is_pangram('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'))
