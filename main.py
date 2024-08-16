@@ -1103,3 +1103,30 @@ root2 = TreeNode(10,TreeNode(5), TreeNode(20)) #return 20
 
 # print(right_most1(root1))
 # print(right_most1(root2))
+
+
+#-----Session 17------
+#Problem 1
+class TreeNode():
+   def __init__(self, value, left=None, right=None):
+       self.val = value
+       self.left = left
+       self.right = right
+
+def is_univalued(root):
+   if not root:
+      return True
+
+   def dfs(node):
+         if not node:
+            return True
+         if node.val != root.val:
+            return False
+         return dfs(node.left) and dfs(node.right)
+
+   return dfs(root)
+
+right = TreeNode(2, None, TreeNode(2))
+left = TreeNode(2, TreeNode(2), TreeNode(2))
+root = TreeNode(2, left, right)
+print(is_univalued(root))
